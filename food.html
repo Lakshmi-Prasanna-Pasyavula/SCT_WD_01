@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stop Food Wastage</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 15px 40px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-size: 24px;
+      color: lightblue;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: whitesmoke;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    nav ul li a:hover {
+      background: #27ae60;
+      transform: translateY(-2px);
+    }
+
+    nav ul li a.active {
+  background-color: #27ae60;
+  color: white;
+  font-weight: bold;
+}
+
+    .spacer {
+      height: 80px;
+    }
+
+    section {
+      padding: 80px 20px;
+      color: black;
+      text-align: center;
+      position: relative;
+      transition: background 0.5s ease;
+    }
+
+    /* Home Section with Background Image */
+.home {
+  background: url('https://www.shutterstock.com/shutterstock/photos/1917794672/display_1500/stock-photo-vegan-health-food-for-a-plant-based-diet-with-a-large-collection-of-food-high-in-antioxidants-1917794672.jpg') no-repeat center center/cover;
+  background-attachment: fixed;
+  color: black;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+
+
+    .home h2 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .home h3 {
+      font-size: 36px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .home p {
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* Other Sections */
+    .about    { background: lightcoral;font-style: italic;color: black; }
+    .impact   { background: #9b59b6;font-style: italic;color: black; }
+    .tips     { background: #e67e22;font-style: italic;color: black;  }
+    .volunteer{ background: pink;font-style: italic; color: black; }
+    .partners { background: #34495e;font-style: italic;color: black;  }
+    .contact  { background: #2ecc71; font-style: italic;color: black;}
+
+    section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    section p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto 10px auto;
+      line-height: 1.6;
+    }
+
+    h3 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: black;
+      letter-spacing: 1px;
+    }
+
+    form {
+      margin-top: 30px;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    form div {
+      margin-bottom: 15px;
+    }
+
+    form label {
+      font-size: 16px;
+      color: #333;
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    form textarea {
+      resize: vertical;
+    }
+
+    form button {
+      background: #27ae60;
+      color: black;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    form button:hover {
+      background: #2ecc71;
+      transform: translateY(-2px);
+    }
+
+    /* Box Shadows for Sections */
+    section {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .home h2 {
+        font-size: 32px;
+      }
+
+      .home h3 {
+        font-size: 24px;
+      }
+
+      .home p {
+        font-size: 16px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+ <nav>
+  <div class="logo">SaveFood</div>
+  <ul>
+    <li><a href="#home" id="link-home">🏠 Home</a></li>
+    <li><a href="#about" id="link-about">📖 About</a></li>
+    <li><a href="#impact" id="link-impact">🌍 Impact</a></li>
+    <li><a href="#tips" id="link-tips">💡 Tips</a></li>
+    <li><a href="#volunteer" id="link-volunteer">🙋 Volunteer</a></li>
+    <li><a href="#partners" id="link-partners">🤝 Partners</a></li>
+    <li><a href="#contact" id="link-contact">✉ Contact</a></li>
+  </ul>
+</nav>
+
+</header>
+
+<div class="spacer"></div>
+
+<section id="home" class="home">
+  <h2>Join the Fight Against Food Waste</h2>
+</section>
+
+<section id="about" class="about">
+  <h2>About Us</h2>
+  <p>We are a nonprofit organization committed to reducing food waste.</p>
+  <p>Our team works with communities, schools, and local groups.</p>
+  <p>Through education and campaigns, we spread the message of conservation.</p>
+  <p>We believe that every meal saved is a step toward a better world.</p>
+</section>
+
+<section id="impact" class="impact">
+  <h2>Our Impact</h2>
+  <p>In the past year, we have rescued over 100 tons of surplus food.</p>
+  <p>This food has been redistributed to shelters, homes, and food banks.</p>
+  <p>We've helped feed thousands of families through our initiatives.</p>
+  <p>Each life touched brings us closer to a waste-free future.</p>
+</section>
+
+<section id="tips" class="tips">
+  <h2>Tips to Reduce Food Waste</h2>
+  <p>Plan your meals and shop with a list to avoid buying extra items.</p>
+  <p>Store food properly to extend freshness and reduce spoilage.</p>
+  <p>Use leftovers creatively in new meals instead of throwing them out.</p>
+  <p>Donate extra non-perishables to local food pantries and drives.</p>
+</section>
+
+<section id="volunteer" class="volunteer">
+  <h2>Become a Volunteer</h2>
+  <p>Join our food rescue missions and help us collect unused meals.</p>
+  <p>Participate in community education and awareness programs.</p>
+  <p>Contribute your time and skills to organize events and workshops.</p>
+  <p>Make a meaningful impact by helping others while saving food.</p>
+</section>
+
+<section id="partners" class="partners">
+  <h2>Our Partners</h2>
+  <p>We collaborate with restaurants, farms, and retailers to save food.</p>
+  <p>Partners donate their surplus, which we safely collect and distribute.</p>
+  <p>Together, we turn potential waste into valuable meals for those in need.</p>
+  <p>Your business can join us in creating a sustainable food cycle.</p>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Email us at: contact@savefood.org for more info or collaboration.</p>
+  <p>Follow us on social media to stay updated on our missions.</p>
+  <p>Join our mailing list for tips, events, and volunteer opportunities.</p>
+  <p>Help us grow a global movement to end food waste!</p>
+
+  <h3>Get in Touch</h3>
+  <form action="submit_form.php" method="POST">
+    <div>
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="message">Your Message:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+    </div>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+<script>
+  window.addEventListener('scroll', function () {
+    const scrollY = window.scrollY;
+
+    // Section elements
+    const home = document.getElementById('home');
+    const about = document.getElementById('about');
+    const impact = document.getElementById('impact');
+    const tips = document.getElementById('tips');
+    const volunteer = document.getElementById('volunteer');
+    const partners = document.getElementById('partners');
+    const contact = document.getElementById('contact');
+
+    // Nav links
+    const linkHome = document.getElementById('link-home');
+    const linkAbout = document.getElementById('link-about');
+    const linkImpact = document.getElementById('link-impact');
+    const linkTips = document.getElementById('link-tips');
+    const linkVolunteer = document.getElementById('link-volunteer');
+    const linkPartners = document.getElementById('link-partners');
+    const linkContact = document.getElementById('link-contact');
+
+    // Remove 'active' from all
+    [linkHome, linkAbout, linkImpact, linkTips, linkVolunteer, linkPartners, linkContact].forEach(link => {
+      link.classList.remove('active');
+    });
+
+    // Add 'active' based on scroll position (adjust offset as needed)
+    if (scrollY >= contact.offsetTop - 250) {
+      linkContact.classList.add('active');
+    } else if (scrollY >= partners.offsetTop - 250) {
+      linkPartners.classList.add('active');
+    } else if (scrollY >= volunteer.offsetTop - 250) {
+      linkVolunteer.classList.add('active');
+    } else if (scrollY >= tips.offsetTop - 250) {
+      linkTips.classList.add('active');
+    } else if (scrollY >= impact.offsetTop - 250) {
+      linkImpact.classList.add('active');
+    } else if (scrollY >= about.offsetTop - 250) {
+      linkAbout.classList.add('active');
+    } else {
+      linkHome.classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>
